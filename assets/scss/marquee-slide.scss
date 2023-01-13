@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.slider-wrapper{
+    overflow: hidden;
+}
+.marquee-slider {
+    display: flex;
+    gap: 10px;
+    animation: slide 10s linear infinite;
+    --size: clamp(10rem, 1rem + 40vmin, 30rem);
+    --gap: calc(var(--size) / 10);
+    --scroll-start: 0;
+    --scroll-end: calc(-100% - var(--gap));
+
+    .marquee-item {
+        width: 178px;
+        height: 200px;
+        background-color: #000;
+        color: #fff;
+        line-height: 200px;
+        text-align: center;
+        font-size: 20px;
+        flex-shrink: 0;
+
+        @keyframes slide {
+            from {
+                transform: translateX(var(--scroll-start));
+            }
+            to {
+                transform: translateX(var(--scroll-end));
+            }
+        }
+    }
+}
